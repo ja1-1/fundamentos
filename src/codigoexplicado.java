@@ -134,4 +134,24 @@ public class codigoexplicado {
         System.out.print(" -> " + intermedio);
     }
 }
-
+// Variables y Estructuras de Datos
+//
+//adjMatrix: Una matriz bidimensional que representa las distancias entre nodos. Se usa para almacenar la "matriz de adyacencia", donde cada elemento [i][j] representa la distancia directa entre los nodos i y j.
+//camino: Otra matriz bidimensional que almacena los nodos intermedios para la ruta más corta. Esto permite reconstruir la ruta completa una vez que se calculan las distancias.
+//Método cargarMatriz
+//
+//Este método lee el archivo que contiene la matriz de adyacencia. Cada línea representa una fila de la matriz.
+//Si un valor es "∞", se considera como "sin conexión directa" (distancia infinita).
+//También se inicializa la matriz camino, donde cada par directo de nodos se almacena para poder reconstruir el camino.
+//Método calcularCaminos
+//
+//Implementa el algoritmo de Floyd-Warshall, que es un algoritmo de programación dinámica para calcular las distancias más cortas entre todos los pares de nodos.
+//La estructura for triple representa el uso de nodos intermedios (k) para mejorar las distancias directas entre nodos i y j.
+//Método mostrarRuta
+//
+//Verifica si hay una ruta válida entre los nodos inicio y fin.
+//Si existe una ruta, muestra la distancia más corta y llama al método imprimirCamino para detallar la ruta exacta.
+//Método imprimirCamino
+//
+//Utiliza la matriz camino para imprimir los nodos intermedios en la ruta más corta.
+//Emplea recursión para recorrer todos los nodos intermedios entre el nodo de inicio y el de fin, permitiendo construir la ruta de forma completa.
