@@ -42,8 +42,12 @@ import java.io.IOException;
                     String[] valores = linea.split(" ");
                     for (int columna = 0; columna < valores.length; columna++) {
                         int peso = Integer.parseInt(valores[columna]);
-                        matrizAdyacencia[fila][columna] = peso;
-                        matrizAdyacencia[columna][fila] = peso; // Simetría para grafo no dirigido
+                        if (peso == 9999) {
+                            matrizAdyacencia[fila][columna] = Integer.MAX_VALUE; // Representa infinito
+                        } else {
+                            matrizAdyacencia[fila][columna] = peso;
+                        }
+                        matrizAdyacencia[columna][fila] = matrizAdyacencia[fila][columna]; // Simétrico para grafo no dirigido
                     }
                     fila++;
                 }
@@ -51,6 +55,7 @@ import java.io.IOException;
                 System.out.println("Error al leer el archivo: " + e.getMessage());
             }
         }
+
 
         /**
          * Aplica el algoritmo de Floyd-Warshall para encontrar las distancias más cortas entre todos los pares de nodos.
@@ -102,7 +107,7 @@ import java.io.IOException;
             inicializarGrafo(4); // Ajusta el número de nodos aquí
 
             // Cargar el grafo desde un archivo de texto
-            cargarGrafoDesdeArchivo("grafo.txt");
+            cargarGrafoDesdeArchivo("matrizprueba.txt");
 
             // Calcular las rutas más cortas
             calcularRutaCorta();
@@ -112,4 +117,4 @@ import java.io.IOException;
         }
     }
 
-}
+
